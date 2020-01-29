@@ -1,9 +1,52 @@
 package lab3;
-import java.awt.FlowLayout;  
+
+import javax.swing.JLabel; 
 import javax.swing.JButton;  
 import javax.swing.JFrame;  
 import java.awt.event.*; 
-import javax.swing.JPanel;
+
+import javax.swing.JTextField;
+class Loginpage{
+	void log()
+	{
+		JFrame f1=new JFrame("loggin page");
+		JLabel l1=new JLabel();
+		l1.setText("Username");
+		l1.setBounds(300,100,100,60);
+		f1.add(l1);
+		JTextField t1=new JTextField();
+		t1.setBounds(500,100,200,60);
+		f1.add(t1);
+		
+		JLabel l2=new JLabel();
+		l2.setText("Password");
+		l2.setBounds(300,300,100,60);
+		f1.add(l2);
+		JTextField t2=new JTextField();
+		t2.setBounds(500,300,200,60);
+		f1.add(t2);
+		
+		JButton b6=new JButton();
+		b6.setText("Login");
+		b6.setBounds(300,500,80,40);
+		f1.add(b6);
+		
+		f1.setSize(900,1100);
+		f1.setLayout(null);  
+	    f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+	    f1.setVisible(true);
+	}
+	
+	  public void actionPerformed(ActionEvent ae){
+	    	String r = ae.getActionCommand();
+	    	if(r.equals("Login")){
+	    		Owner z=new Owner();
+	    		z.display();
+	    		
+	    	}
+	  }
+	
+}
  class Owner{
 	void display(){
 	JFrame j1= new JFrame("Owner page");
@@ -33,6 +76,7 @@ import javax.swing.JPanel;
     j1.setVisible(true);
 	
 }
+	 
 }
 class Guest{
 	void read(){
@@ -79,8 +123,8 @@ public class Share implements ActionListener{
     public void actionPerformed(ActionEvent ae){
     	String r = ae.getActionCommand();
     	if(r.equals("Owner")){
-    		Owner z=new Owner();
-    		z.display();
+    		Loginpage z=new Loginpage();
+    		z.log();
     		
     	}
     	else if(r.equals("Guest")){
