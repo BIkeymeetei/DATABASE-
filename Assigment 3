@@ -1,0 +1,94 @@
+package lab3;
+import java.awt.FlowLayout;  
+import javax.swing.JButton;  
+import javax.swing.JFrame;  
+import java.awt.event.*; 
+import javax.swing.JPanel;
+ class Owner{
+	void display(){
+	JFrame j1= new JFrame("Owner page");
+	JButton b1=new JButton();
+	b1.setText("insert");
+	b1.setBounds(300,100,100,60);
+	j1.add(b1);
+	
+	JButton b2=new JButton();
+	b2.setText("Delete");
+	b2.setBounds(300,260,100,60);
+	j1.add(b2);
+	
+	JButton b3=new JButton();
+	b3.setText("Display");
+	b3.setBounds(300,420,100,60);
+	j1.add(b3);
+	
+	JButton b4=new JButton();
+	b4.setText("update");
+	b4.setBounds(300,580,100,60);
+	j1.add(b4);
+	
+	j1.setSize(900,1100);
+	j1.setLayout(null);  
+    j1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+    j1.setVisible(true);
+	
+}
+}
+class Guest{
+	void read(){
+		JFrame j2=new JFrame("Guest page");
+		JButton b5=new JButton();
+		b5.setText("View");
+		b5.setBounds(300,100,150,150);
+		j2.add(b5);
+		
+		j2.setSize(900,1000);
+		j2.setLayout(null);
+		 j2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+		    j2.setVisible(true);
+				}
+}
+public class Share implements ActionListener{  
+    public static void main(String s[]) {  
+    	Share sx=new Share();
+    	
+        JFrame frame = new JFrame("Share market");  
+        //JPanel panel = new JPanel();  
+       // panel.setLayout(new FlowLayout());  
+        
+        JButton button= new JButton();  
+        button.setText("Owner");  
+        button.setBounds(300,150,100,60);
+    	button.addActionListener(sx);
+           
+       // panel.add(button1);
+        frame.add(button);  
+        
+
+        JButton button1= new JButton(); 
+        button1.setText("Guest");  
+        button1.setBounds(300,400,100,60);
+        button1.addActionListener(sx);
+       // panel.add(button);
+        frame.add(button1);  
+        frame.setSize(800, 1000); frame.setLayout(null);
+       // frame.setLocationRelativeTo(null);  
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        frame.setVisible(true);  
+    }  
+    public void actionPerformed(ActionEvent ae){
+    	String r = ae.getActionCommand();
+    	if(r.equals("Owner")){
+    		Owner z=new Owner();
+    		z.display();
+    		
+    	}
+    	else if(r.equals("Guest")){
+    		Guest y=new Guest();
+    		y.read();
+    		
+    	}
+    	
+    }
+    
+}  
